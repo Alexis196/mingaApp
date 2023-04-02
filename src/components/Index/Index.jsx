@@ -20,7 +20,7 @@ const Index = (props) => {
 }
 const style = StyleSheet.create({
     altura:{
-        height: 770
+        height: 820
     },
     div: {
         height: '100%',

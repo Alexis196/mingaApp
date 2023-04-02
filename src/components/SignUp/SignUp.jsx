@@ -1,35 +1,36 @@
-import React, { useState } from 'react'
-import { View, TextInput, Text, TouchableOpacity, StyleSheet, Image, Alert, AsyncStorage } from 'react-native'
-import TextSignIn from '../TextSingIn/TextSignIn';
-import { useNavigation } from '@react-navigation/native';
+import React from 'react'
+import { useState } from 'react';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, Image, Alert } from 'react-native'
 import axios from 'axios';
-import SignUp from '../SignUp/SignUp';
+import SignIn from '../SignIn/SignIn';
 import Navbar from '../Navbar/Navbar';
 
-
-function SignIn(props) {
-    const navigation = useNavigation();
+function SignUp() {
+    const [name, setName] = useState('');
     const [mail, setMail] = useState('');
+    const [photo, setPhoto] = useState('');
     const [password, setPassword] = useState('');
-    const [showSignUp, setShowSignUp] = useState(false)
+    const [showSignIn, setShowSignIn] = useState(false)
 
     async function handleSubmit() {
         let data = {
+            name: name,
             mail: mail,
+            photo: photo,
             password: password
         }
         console.log(data)
 
-        let url_signIn = 'https://minga-back-446z.onrender.com/auth/signin';
+        let url = 'https://minga-back-446z.onrender.com/auth/signup';
 
         try {
-            await axios.post(url_signIn, data).then((res) => {
+            await axios.post(url, data).then((res) => {
                 console.log('funcionó');
-                Alert.alert('¡Usuario Online!', 'Bienvenido', [
+                Alert.alert('¡Usuario creado con éxito!', 'Bienvenido', [
                     { text: 'OK', onPress: () => console.log('OK Pressed') },
                 ]);
                 setTimeout(() => {
-                    navigation.navigate('Mangas');
+                    setShowSignIn(true)
                 }, 1000);
             });
         } catch (error) {
@@ -39,27 +40,55 @@ function SignIn(props) {
                 { text: 'OK', onPress: () => console.log('OK Pressed') },
             ]);
         }
+        setName('')
         setMail('')
+        setPhoto('')
         setPassword('')
     }
-    function handleSignUp() {
-        setShowSignUp(true)
+    function handleSignIn() {
+        setShowSignIn(true)
     }
-
     return (
-        showSignUp ? <SignUp /> :
+        showSignIn ? <SignIn /> :
             <View>
                 <Navbar />
-                <View style={style.altura}>
-                    <TextSignIn />
+                <View style={style.register}>
+                    <View style={style.contText}>
+                        <Text style={style.title}>
+                            Welcome!
+                        </Text>
+                    </View>
+                    <View style={style.textR}>
+                        <Text style={style.subText}>
+                            Discover manga, manhua and manhwa, track your progress, have fun, read manga.
+                        </Text>
+                    </View>
                     <View style={style.contentForm}>
+                        <View style={style.contInputText}>
+                            <Text style={style.textInput}>Name:</Text>
+                            <TextInput
+                                placeholder='Enter your name'
+                                style={style.input}
+                                value={name}
+                                onChangeText={(text) => setName(text)}
+                            />
+                        </View>
                         <View style={style.contInputText}>
                             <Text style={style.textInput}>Email:</Text>
                             <TextInput
-                                placeholder='Example@gmail.com'
+                                placeholder='Enter your email'
                                 style={style.input}
                                 value={mail}
                                 onChangeText={(text) => setMail(text)}
+                            />
+                        </View>
+                        <View style={style.contInputText}>
+                            <Text style={style.textInput}>Photo:</Text>
+                            <TextInput
+                                placeholder='Enter the URL of your photo'
+                                style={style.input}
+                                value={photo}
+                                onChangeText={(text) => setPhoto(text)}
                             />
                         </View>
                         <View style={style.contInputText}>
@@ -73,33 +102,57 @@ function SignIn(props) {
                             />
                         </View>
                         <TouchableOpacity style={style.btnSingIn} onPress={handleSubmit}>
-                            <Text style={style.btnTextSingin}>Sign In</Text>
+                            <Text style={style.btnTextSingin}>Sign Up</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={style.btnGoogle}>
                             <Image source={require('../../../assets/img/Google.png')} style={style.google} />
                             <Text> Sign in with Google</Text>
                         </TouchableOpacity>
                         <View style={style.signUp}>
-                            <Text style={style.text}>You don't have an account yet? </Text>
-                            <TouchableOpacity onPress={handleSignUp}>
-                                <Text style={style.textRoses}>Sign up</Text>
+                            <Text style={style.text}>Already have an account? </Text>
+                            <TouchableOpacity onPress={handleSignIn}>
+                                <Text style={style.textRoses}>Log in</Text>
                             </TouchableOpacity>
                         </View>
-                        <View style={style.signUp}>
+                        <View View style={style.signUp}>
                             <Text style={style.text}>Go back to <Text style={style.textRoses}>home page</Text></Text>
                         </View>
                     </View>
                 </View>
             </View>
-
     )
 }
-
 const style = StyleSheet.create({
+    register: {
+        height: 822,
+        display: 'flex',
+        justifyContent: 'center'
+    },
+    contText: {
+        marginBottom: 20,
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center',
+    },
+    textR: {
+        marginBottom: 20,
+        width: '90%',
+        alignSelf: 'center',
+        display: 'flex',
+        alignItems: 'center'
+    },
+    title: {
+        fontSize: 32,
+        fontWeight: 600,
+        color: '#1F1F1F'
+    },
+    subText: {
+        textAlign: 'center',
+    },
     altura: {
         display: 'flex',
         justifyContent: 'center',
-        height: 772,
+        height: 720,
         marginTop: 50
     },
     gralCont: {
@@ -176,5 +229,4 @@ const style = StyleSheet.create({
         color: '#F472B6',
     },
 })
-
-export default SignIn
+export default SignUp

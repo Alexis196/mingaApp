@@ -6,7 +6,7 @@ const isAuthor = createAsyncThunk(
     async()=>{
         let token = localStorage.getItem('token')
         let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-        let url = 'http://localhost:8000/authors/me'
+        let url = 'https://minga-back-446z.onrender.com/authors/me'
         try{
             let response = await axios.get(url,headers)
             return{

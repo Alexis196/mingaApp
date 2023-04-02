@@ -11,6 +11,9 @@ import modalDeleteReducer from "./DeleteManga/reducer";
 import authorReducer from "./authors/reducer"; //G
 import donationReducer from "./Donations/Reducer";
 import authorReducer2 from "./Autores/reducer";
+import authorReducerG from './Author/reducer'
+import companyReducer from "./Company/reducer";
+import captureState from "./Capture/reducer";
 
 export const store = configureStore({
         reducer: {
@@ -26,5 +29,8 @@ export const store = configureStore({
         author: authorReducer, //G
         autor: authorReducer2,
         donations: donationReducer,
+        Author: authorReducerG,
+        Company: companyReducer,
+        checked: captureState,
 },
 });

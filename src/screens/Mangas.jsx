@@ -1,13 +1,13 @@
 import React from 'react'
-import { View, Text, SafeAreaView, StatusBar, StyleSheet } from 'react-native'
-import SignUp from '../components/SignUp/SignUp'
+import { View, Text, SafeAreaView, StatusBar, StyleSheet, ScrollView } from 'react-native'
+import Mangas from '../components/Mangas/Mangas'
 
 function MangasScreen() {
   return (
     <SafeAreaView style={style.content}>
-      <View>
-        <SignUp />
-      </View>
+      <ScrollView>
+        <Mangas />
+      </ScrollView>
     </SafeAreaView>
   )
 }

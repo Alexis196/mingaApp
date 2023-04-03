@@ -33,8 +33,8 @@ export default function MangasAll() {
         dispatch(
             read_mangas({ inputText: defaultText, inputCheck: defaultChecks, inputPage: pageNumber })
             );
-        }, [defaultChecks, pageNumber, dispatch]);
-/* */
+        }, [!reload, defaultChecks, pageNumber, dispatch]);
+        
     return (
         <View  style={styles.container}>
             <ImageBackground source={MangasFondo} resizeMode="cover" style={styles.image1}>

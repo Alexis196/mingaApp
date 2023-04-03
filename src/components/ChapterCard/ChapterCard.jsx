@@ -1,20 +1,24 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 export default function ChapterCard(props) {
     const navigation = useNavigation();
+
+    function handleRead() {
+        navigation.navigate('Chapter', { CHAPTER: props })
+    }
 
     return (
         <View style={styles.cardContainer}>
         <View style={styles.infoContainer}>
             <Text style={styles.category}>{props.order}</Text>
             <Text style={styles.title}>{props.title_}</Text>
-            <View style={styles.btnCont}>
-                <Text style={styles.btnTexto} onPress={() => navigation.navigate('Chapter', { CHAPTER: props })}>
-                    Read
-                </Text>
-            </View>
+            <TouchableOpacity style={styles.btnCont} onPress={handleRead}>
+                    <View>
+                        <Text style={styles.btnTexto}>Read</Text>
+                    </View>
+                </TouchableOpacity>
         </View>
         <Image style={styles.img} source={{ uri: props.pages[0] }} />
         </View>
@@ -62,7 +66,7 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 10,
         borderBottomLeftRadius: 10,
     },
-    btnCont:{
+    btnCont: {
         marginTop: 35,
         display: 'flex',
         justifyContent: 'center',

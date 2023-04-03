@@ -1,21 +1,28 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import axios from 'axios';
 
 function ReadChapter(props) {
+    const navigation = useNavigation()
     const id = props.CHAPTER
-    const [pageNumber, setPageNumber] = useState(Number(''));
+    const [pageNumber, setPageNumber] = useState(0);
+
     function handleNext(){
-        console.log('hola')
-        setPageNumber (pageNumber +1)
-        console.log(pageNumber)
-    }
-    function handlePrev(){
-        console.log('hola')
-        if(pageNumber > 0){
-            setPageNumber (pageNumber -1)
+        if (pageNumber > id.pages.length - 1) {
+            navigation.goBack();
+        } else {
+            setPageNumber(pageNumber + 1)
         }
-        console.log(pageNumber)
+    }
+
+    function handlePrev() {
+        if (pageNumber > 0) {
+            setPageNumber(pageNumber - 1);
+        } else {
+            navigation.goBack();
+        }
     }
 
     return (
@@ -34,6 +41,7 @@ function ReadChapter(props) {
         </View>
     )
 }
+
 const style = StyleSheet.create({
     img: {
         width: 'auto',
@@ -45,4 +53,5 @@ const style = StyleSheet.create({
         backgroundColor: 'green'
     },
 })
+
 export default ReadChapter

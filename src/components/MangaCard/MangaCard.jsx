@@ -1,9 +1,13 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 export default function MangaCard(props) {
     const navigation = useNavigation();
+
+    function handleRead() {
+        navigation.navigate('Details', { manga: props })
+    }
 
     return (
         <View style={styles.cardContainer}>
@@ -11,11 +15,11 @@ export default function MangaCard(props) {
             <View style={styles.infoContainer}>
                 <Text style={styles.title}>{props.title_}</Text>
                 <Text style={styles.category}>{props.category_.name}</Text>
-                <View style={styles.btnCont}>
-                    <Text style={styles.btnTexto} onPress={() => navigation.navigate('Details', { manga: props })}>
-                        Read
-                    </Text>
-                </View>
+                <TouchableOpacity style={styles.btnCont} onPress={handleRead}>
+                    <View>
+                        <Text style={styles.btnTexto}>Read</Text>
+                    </View>
+                </TouchableOpacity>
             </View>
             <Image style={styles.img} source={{ uri: props.photo }} />
         </View>
@@ -77,5 +81,10 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 20,
         fontWeight: 500,
+    },
+    btn:{
+        width: 50,
+        height: 50,
+        backgroundColor: 'green'
     },
 });

@@ -2,22 +2,21 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
-export default function MangaCard(props) {
+export default function ChapterCard(props) {
     const navigation = useNavigation();
 
     return (
         <View style={styles.cardContainer}>
-            <View style={[styles.spanCard, { backgroundColor: props.category_.name.includes('shonen') ? 'red' : props.category_.name.includes('comic') ? 'orange' : props.category_.name.includes('shojo') ? 'green' : props.category_.name.includes('seinen') ? 'purple' : '' }]}></View>
-            <View style={styles.infoContainer}>
-                <Text style={styles.title}>{props.title_}</Text>
-                <Text style={styles.category}>{props.category_.name}</Text>
-                <View style={styles.btnCont}>
-                    <Text style={styles.btnTexto} onPress={() => navigation.navigate('Details', { manga: props })}>
-                        Read
-                    </Text>
-                </View>
+        <View style={styles.infoContainer}>
+            <Text style={styles.category}>{props.order}</Text>
+            <Text style={styles.title}>{props.title_}</Text>
+            <View style={styles.btnCont}>
+                <Text style={styles.btnTexto} onPress={() => navigation.navigate('Chapter', { CHAPTER: props })}>
+                    Read
+                </Text>
             </View>
-            <Image style={styles.img} source={{ uri: props.photo }} />
+        </View>
+        <Image style={styles.img} source={{ uri: props.pages[0] }} />
         </View>
     );
 }
@@ -63,7 +62,7 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 10,
         borderBottomLeftRadius: 10,
     },
-    btnCont: {
+    btnCont:{
         marginTop: 35,
         display: 'flex',
         justifyContent: 'center',
@@ -77,5 +76,5 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 20,
         fontWeight: 500,
-    },
+},
 });

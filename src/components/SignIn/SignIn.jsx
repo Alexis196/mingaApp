@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { View, TextInput, Text, TouchableOpacity, StyleSheet, Image, Alert, AsyncStorage } from 'react-native'
+import { View, TextInput, Text, TouchableOpacity, StyleSheet, Image, Alert } from 'react-native'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import TextSignIn from '../TextSingIn/TextSignIn';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
@@ -23,15 +24,21 @@ function SignIn(props) {
         let url_signIn = 'https://minga-back-446z.onrender.com/auth/signin';
 
         try {
-            await axios.post(url_signIn, data).then((res) => {
-                console.log('funcionó');
-                Alert.alert('¡Usuario Online!', 'Bienvenido', [
-                    { text: 'OK', onPress: () => console.log('OK Pressed') },
-                ]);
-                setTimeout(() => {
-                    navigation.navigate('Mangas');
-                }, 1000);
-            });
+            const res = await axios.post(url_signIn, data)
+            console.log('funcionó');
+
+            const token = res.data.token
+            await AsyncStorage.setItem('token', JSON.stringify(token))
+
+            Alert.alert('¡Usuario Online!', 'Bienvenido', [
+                { text: 'OK', onPress: () => console.log('OK Pressed') },
+            ]);
+            setTimeout(() => {
+                navigation.navigate('Mangas');
+            }, 1000);
+            setMail('')
+            setPassword('')
+
         } catch (error) {
             let err = error.response.data.message;
             console.log('Ocurrió un error: ' + err);
@@ -39,9 +46,8 @@ function SignIn(props) {
                 { text: 'OK', onPress: () => console.log('OK Pressed') },
             ]);
         }
-        setMail('')
-        setPassword('')
     }
+    
     function handleSignUp() {
         setShowSignUp(true)
     }

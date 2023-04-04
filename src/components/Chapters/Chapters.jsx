@@ -45,12 +45,12 @@ export default function Chapters(props) {
             <View style={styles.btnContainer}>
                 {pageNumber === 1 ? null : (
                     <TouchableOpacity style={styles.btnPrev} onPress={decreasePageNumber}>
-                    <Text>Prev</Text>
+                    <Text style={styles.btnTexto}>Prev</Text>
                     </TouchableOpacity>
                 )}
                 {(CHAPTERS?.length === 4 || CHAPTERS?.length === 10) && (
                     <TouchableOpacity style={styles.btnNext} onPress={increasePageNumber}>
-                    <Text>Next</Text>
+                    <Text style={styles.btnTexto}>Next</Text>
                     </TouchableOpacity>
                 )}
             </View>
@@ -75,6 +75,8 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
+        marginBottom: 10,
+        gap: 10
     },
     btnPrev: {
         marginTop: 5,
@@ -83,7 +85,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: 180,
         height: 60,
-        backgroundColor: 'orange',
+        backgroundColor: '#F9A8D4',
         borderRadius: 5000,
     },
     btnNext: {
@@ -93,7 +95,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: 180,
         height: 60,
-        backgroundColor: 'orange',
+        backgroundColor: '#F9A8D4',
         borderRadius: 5000,
-    }
+    },
+    btnTexto: {
+        color: '#fff',
+        fontSize: 20,
+        fontWeight: 500,
+    },
 })

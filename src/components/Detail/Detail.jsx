@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Image, Text, View, StyleSheet, ImageBackground, TouchableOpacity, TextInput} from "react-native";
-import { useSelector,useDispatch } from "react-redux";
+import { Image, Text, View, StyleSheet, ImageBackground, TouchableOpacity, TextInput } from "react-native";
+import { useSelector, useDispatch } from "react-redux";
 import getManga from '../../store/Manga/actions'
 import getChapters from '../../store/Chapters/actions'
-const {get_manga} = getManga
-const {get_chapters} = getChapters
+const { get_manga } = getManga
+const { get_chapters } = getChapters
 
 export default function Detail(props) {
     const id = props._id
@@ -35,10 +35,10 @@ export default function Detail(props) {
 
     return (
         <View>
-            <View>
-                <Image style={styles.img} source={{ uri: imageManga }}/>
-                <Text>{titleManga}</Text>
-                <Text>{descriptionManga}</Text>
+            <Image style={styles.img} source={{ uri: imageManga }} />
+            <Text style={styles.title}>{titleManga}</Text>
+            <View style={styles.description}>
+                <Text style={styles.text}>{descriptionManga}</Text>
             </View>
         </View>
     )
@@ -46,11 +46,29 @@ export default function Detail(props) {
 
 const styles = StyleSheet.create({
     img: {
-        width: 150,
-        height: 200,
-        borderTopRightRadius: 5,
-        borderBottomRightRadius: 5,
+        justifyContent:'center',
+        alignSelf: 'center',
+        alignItems: 'center',
+        margin: 10,
+        width: '80%',
+        height: 400,
+        borderTopRightRadius: 10,
+        borderBottomRightRadius: 10,
         borderTopLeftRadius: 10,
         borderBottomLeftRadius: 10,
     },
+    title:{
+        textAlign: 'center',
+        fontSize: 32,
+        fontWeight: 500,
+        marginBottom: 10,
+    },
+    description: {
+        width: '90%',
+        alignSelf: 'center',
+    },
+    text:{
+        fontSize: 15,
+        lineHeight: 22
+    }
 })

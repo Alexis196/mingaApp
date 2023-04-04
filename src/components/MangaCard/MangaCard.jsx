@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
         margin: 10
     },
     spanCard: {
-        width: 15,
-        height: 200,
+        width: 3,
+        height: 170,
         borderTopRightRadius: 20,
         borderBottomRightRadius: 20,
         borderTopLeftRadius: 5,
@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
         marginRight: 10
     },
     infoContainer: {
+        padding: 1,
         flex: 1,
         justifyContent: 'center'
     },
@@ -64,11 +65,11 @@ const styles = StyleSheet.create({
         height: 200,
         borderTopRightRadius: 5,
         borderBottomRightRadius: 5,
-        borderTopLeftRadius: 10,
-        borderBottomLeftRadius: 10,
+        borderTopLeftRadius: 100,
+        borderBottomLeftRadius: 100,
     },
     btnCont: {
-        marginTop: 35,
+        marginTop: 15,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

@@ -27,6 +27,7 @@ export default function ChapterCard(props) {
 
 const styles = StyleSheet.create({
     cardContainer: {
+        paddingLeft: 10,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 23,
         fontWeight: 'bold',
-        marginBottom: 5,
+        marginBottom: 10,
         marginLeft: 5
     },
     category: {

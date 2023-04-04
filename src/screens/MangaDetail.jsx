@@ -6,10 +6,12 @@ import { store } from '../store/store'
 import Detail from "../components/Detail/Detail";
 import Chapters from "../components/Chapters/Chapters";
 
+
 export default function MangaDetailsScreen() {
     const route = useRoute();
     const { manga } = route.params;
     const id = manga._id
+
 
     return (
         <Provider store={store}>

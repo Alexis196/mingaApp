@@ -1,14 +1,14 @@
 import React from 'react'
 import { View, Text } from 'react-native'
-import Index from '../components/Index/Index'
+import LogOutButton from '../components/LogOutButton/LogOutButton'
 
-function LogOut() {
-    const token = async
+function LogOutScreen() {
+
     return (
         <View>
-            <Index/>
+            <LogOutButton/>
         </View>
     )
 }
 
-export default LogOut
+export default LogOutScreen

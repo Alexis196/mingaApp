@@ -27,30 +27,64 @@ function ReadChapter(props) {
 
     return (
         <View>
-            <View>
-                <Text>{id.order_}</Text>
-                <Text>{id.title_}</Text>
+            <View style={style.contTitle}>
+                <Text style={style.title}>N° {id.order_} || </Text>
+                <Text style={style.title}>{id.title_}</Text>
             </View>
             <Image style={style.img} source={{ uri: id.pages[pageNumber] }} />
-            <TouchableOpacity style={style.btn} onPress={handlePrev}>
-                <Text>Prev</Text>
+            <TouchableOpacity style={style.btnPrev} onPress={handlePrev}>
+                <Text style={style.btn}>Prev</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={style.btn} onPress={handleNext}>
-                <Text>Next</Text>
+            <TouchableOpacity style={style.btnNext} onPress={handleNext}>
+                <Text style={style.btn}>Next</Text>
             </TouchableOpacity>
         </View>
     )
 }
 
 const style = StyleSheet.create({
+    contTitle:{
+        display: 'flex',
+        flexDirection: 'row', 
+        alignSelf: 'center',
+        gap: 10,
+        fontSize: 16,
+        marginBottom: 10,
+    },
+    title:{
+        fontSize: 30,
+        fontWeight: 'bold'
+    },
     img: {
         width: 'auto',
         height: 680
     },
     btn:{
+        fontSize: 16,
+        fontWeight: 500,
+        color: '#fff',
+        textAlign: 'center',
+        paddingTop: 12
+    },
+    btnPrev:{
+        position: 'absolute',
+        top: '50%',
+        bottom: '50%',
+        left: 0,
         width: 50,
         height: 50,
-        backgroundColor: 'green'
+        backgroundColor: '#000',
+        borderRadius: 500
+    },
+    btnNext:{
+        position: 'absolute',
+        top: '50%',
+        bottom: '50%',
+        right: 0,
+        width: 50,
+        height: 50,
+        backgroundColor: '#000',
+        borderRadius: 500
     },
 })
 

@@ -29,7 +29,8 @@ const style = StyleSheet.create({
     },
     welcome: {
         fontSize: 32,
-        fontWeight: 500
+        fontWeight: 500,
+        color: '#fff'
     },
     textRose: {
         fontSize: 32,
@@ -38,6 +39,7 @@ const style = StyleSheet.create({
     },
     subText: {
         textAlign: 'center',
+        color: '#fff'
     }
 })
 export default TextSignIn

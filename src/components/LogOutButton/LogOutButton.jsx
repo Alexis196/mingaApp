@@ -44,14 +44,15 @@ function LogOutButton() {
 
 const style = StyleSheet.create({
     btn: {
-        width: 'auto',
-        height: 78,
+        marginTop: 30,
+        width: 363,
+        height: 69,
         backgroundColor: '#F9A8D4',
-        borderRadius: 500
+        borderRadius: 5000
     },
     text: {
         paddingTop: 18,
-        fontSize: 32,
+        fontSize: 24,
         fontWeight: 500,
         color: '#fff',
         textAlign: 'center'

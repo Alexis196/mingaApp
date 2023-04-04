@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         borderWidth: 1,
         borderRadius: 5,
+        borderColor: '#fff',
         width: '85%',
         margin: 10
     },
@@ -53,7 +54,8 @@ const styles = StyleSheet.create({
         fontSize: 23,
         fontWeight: 'bold',
         marginBottom: 10,
-        marginLeft: 5
+        marginLeft: 5,
+        color: '#fff'
     },
     category: {
         fontSize: 18,

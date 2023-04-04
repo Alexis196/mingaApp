@@ -1,5 +1,6 @@
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useState, useCallback } from "react";
 import { useFocusEffect } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -45,12 +46,36 @@ function BottomTabsNavigator() {
     return (
         <Tab.Navigator
             initialRouteName="Home"
-            activeColor="#f0edf6"
-            inactiveColor="#3e2465"
-            barStyle={{ backgroundColor: "pink" }}
+            activeColor="#000"
+            inactiveColor="#fff"
+            barStyle={{ backgroundColor: "#F9A8D4" }}
         >
-            <Tab.Screen name="Home" component={HomeScreen} />
-            <Tab.Screen name="Mangas" component={MangasStack} />
+            <Tab.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{
+            tabBarIcon: ({ color }) => (
+                <MaterialCommunityIcons
+                name="home"
+                color={color}
+                size={26}
+                />
+            ),
+            }}
+        />
+            <Tab.Screen
+            name="Mangas"
+            component={MangasStack}
+            options={{
+            tabBarIcon: ({ color }) => (
+                <MaterialCommunityIcons
+                name="book-open"
+                color={color}
+                size={26}
+                />
+            ),
+            }}
+        />
         </Tab.Navigator>
     );
 }

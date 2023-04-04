@@ -43,6 +43,7 @@ export default function MangasAll() {
                     <Text style={styles.title}>Mangas</Text>
                 </View>
             </ImageBackground>
+            <View style={styles.cont2}>
             <View style={styles.MangaChecksContainer}>
                 <MangasChecks />
             </View>
@@ -54,6 +55,7 @@ export default function MangasAll() {
                 )}
             </View>
             <ButtonPrevNext pageNumber={pageNumber} increasePageNumber={increasePageNumber} decreasePageNumber={decreasePageNumber} mangas={mangas} />
+            </View>
         </View>
     );
 }
@@ -61,6 +63,9 @@ export default function MangasAll() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+    },
+    cont2:{
+        backgroundColor:'#333333'
     },
     containerTexto: {
         flex: 0.6,
@@ -84,9 +89,9 @@ const styles = StyleSheet.create({
     },
     image1: {
         flex: 1,
-        justifyContent: 'center',
+        alignSelf: 'center',
         width: '100%',
-        height: '100%'
+        height: 350
     },
     btnCont:{
         marginTop: 30,
@@ -114,7 +119,6 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         width: '85%',
         height: 100,
-        backgroundColor: '#F9A8D4',
         borderRadius: 15,
     }
 })

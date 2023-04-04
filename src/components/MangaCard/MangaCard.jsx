@@ -31,8 +31,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        borderWidth: 1,
+        borderWidth: 2,
         borderRadius: 5,
+        borderColor: '#fff',
         width: '85%',
         margin: 10
     },
@@ -54,11 +55,13 @@ const styles = StyleSheet.create({
         fontSize: 23,
         fontWeight: 'bold',
         marginBottom: 5,
-        marginLeft: 5
+        marginLeft: 5,
+        color: '#fff'
     },
     category: {
         fontSize: 18,
-        marginLeft: 5
+        marginLeft: 5,
+        color: '#fff'
     },
     img: {
         width: 150,

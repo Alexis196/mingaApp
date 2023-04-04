@@ -34,7 +34,7 @@ export default function Chapters(props) {
 
 
     return (
-        <View>
+        <View style={styles.cardsContainer}>
             <View style={styles.cardsContainer}>
                 {CHAPTERS?.length ? (
                 CHAPTERS.map((CHAPTER) => <ChapterCard key={CHAPTER._id} title_={CHAPTER.title} order_={CHAPTER.order} pages={CHAPTER.pages} description={CHAPTER.description} _id={CHAPTER._id}/>)
@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
     },
     cardsContainer: {
         alignItems: 'center',
+        backgroundColor: '#333333'
     },
     btnContainer: {
         width: 450,

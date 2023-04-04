@@ -47,14 +47,14 @@ function SignIn(props) {
             ]);
         }
     }
-    
+
     function handleSignUp() {
         setShowSignUp(true)
     }
 
     return (
         showSignUp ? <SignUp /> :
-            <View>
+            <View style={style.cont}>
                 <Navbar />
                 <View style={style.altura}>
                     <TextSignIn />
@@ -83,7 +83,7 @@ function SignIn(props) {
                         </TouchableOpacity>
                         <TouchableOpacity style={style.btnGoogle}>
                             <Image source={require('../../../assets/img/Google.png')} style={style.google} />
-                            <Text> Sign in with Google</Text>
+                            <Text style={style.text}> Sign in with Google</Text>
                         </TouchableOpacity>
                         <View style={style.signUp}>
                             <Text style={style.text}>You don't have an account yet? </Text>
@@ -102,11 +102,14 @@ function SignIn(props) {
 }
 
 const style = StyleSheet.create({
+    cont: {
+        backgroundColor: '#333333'
+    },
     altura: {
         display: 'flex',
         justifyContent: 'center',
-        height: 772,
-        marginTop: 50
+        height: 740,
+        marginTop: 50,
     },
     gralCont: {
         display: 'flex',
@@ -123,13 +126,16 @@ const style = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#ccc',
         borderRadius: 10,
+        backgroundColor: '#fff'
     },
     textInput: {
         marginLeft: 12,
+        color: '#000'
     },
     input: {
         padding: 10,
         width: '100%',
+        color: '#000'
     },
     btnSingIn: {
         backgroundColor: '#F9A8D4',
@@ -155,6 +161,7 @@ const style = StyleSheet.create({
         justifyContent: 'center',
         borderWidth: 1,
         borderRadius: 10,
+        borderColor: '#fff',
         height: 56,
         alignItems: 'center',
         padding: 15,
@@ -175,6 +182,7 @@ const style = StyleSheet.create({
     text: {
         fontSize: 12,
         fontWeight: 500,
+        color: '#fff'
     },
     textRoses: {
         fontSize: 12,

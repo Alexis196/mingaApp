@@ -26,7 +26,7 @@ function ReadChapter(props) {
     }
 
     return (
-        <View>
+        <View style={style.cont}>
             <View style={style.contTitle}>
                 <Text style={style.title}>N° {id.order_} || </Text>
                 <Text style={style.title}>{id.title_}</Text>
@@ -43,6 +43,9 @@ function ReadChapter(props) {
 }
 
 const style = StyleSheet.create({
+    cont:{
+        backgroundColor: '#333333'
+    },
     contTitle:{
         display: 'flex',
         flexDirection: 'row', 
@@ -50,10 +53,12 @@ const style = StyleSheet.create({
         gap: 10,
         fontSize: 16,
         marginBottom: 10,
+
     },
     title:{
         fontSize: 30,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: '#fff'
     },
     img: {
         width: 'auto',

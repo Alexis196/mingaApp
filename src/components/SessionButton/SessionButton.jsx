@@ -15,6 +15,7 @@ function SessionButton() {
 
 const style = StyleSheet.create({
     cont: {
+        backgroundColor: '#333333',
         display: 'flex',
         justifyContent: 'center',
         alignContent: 'center',
@@ -23,7 +24,7 @@ const style = StyleSheet.create({
     btn:{
         width: 'auto',
         height: 78,
-        backgroundColor: '#fff',
+        backgroundColor: '#F9A8D4',
         borderRadius: 500
     },
     text: {
@@ -31,7 +32,8 @@ const style = StyleSheet.create({
         fontSize: 24,
         fontWeight: 500,
         color: '#000',
-        textAlign: 'center'
+        textAlign: 'center',
+        color: '#fff'
     }
 })
 

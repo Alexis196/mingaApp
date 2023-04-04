@@ -34,7 +34,7 @@ export default function Detail(props) {
 
 
     return (
-        <View>
+        <View  style={styles.cont}>
             <Image style={styles.img} source={{ uri: imageManga }} />
             <Text style={styles.title}>{titleManga}</Text>
             <View style={styles.description}>
@@ -45,6 +45,9 @@ export default function Detail(props) {
 }
 
 const styles = StyleSheet.create({
+    cont:{
+        backgroundColor: '#333333'
+    },
     img: {
         justifyContent:'center',
         alignSelf: 'center',
@@ -62,6 +65,7 @@ const styles = StyleSheet.create({
         fontSize: 32,
         fontWeight: 500,
         marginBottom: 10,
+        color: '#fff'
     },
     description: {
         width: '90%',
@@ -69,6 +73,7 @@ const styles = StyleSheet.create({
     },
     text:{
         fontSize: 15,
-        lineHeight: 22
+        lineHeight: 22,
+        color: '#fff'
     }
 })

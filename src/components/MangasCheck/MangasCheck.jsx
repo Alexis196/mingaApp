@@ -120,12 +120,19 @@ const styles = StyleSheet.create({
         marginVertical: 10,
         paddingHorizontal: 20,
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        gap: 5,
+        alignSelf: 'center'
     },
-    checkboxContainer: {
-        flexDirection: 'row',
+    checksContainer: {
+        width: 70,
+        height: 70,
+        paddingTop: 10,
         alignItems: 'center',
         marginBottom: 10,
+        backgroundColor: '#F9A8D4',
+        borderRadius: 500,
+        gap: -7
     },
     selectedCheckbox: {
         backgroundColor: '#EEE',
@@ -137,4 +144,8 @@ const styles = StyleSheet.create({
         height: 20,
         width: 20,
     },
+    checksText:{
+        color: '#fff',
+        fontWeight: 500
+    }
 });

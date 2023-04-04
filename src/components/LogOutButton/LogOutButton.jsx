@@ -43,13 +43,6 @@ function LogOutButton() {
 }
 
 const style = StyleSheet.create({
-    cont: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignContent: 'center',
-        height: 800,
-        padding: 10,
-    },
     btn: {
         width: 'auto',
         height: 78,
@@ -60,7 +53,7 @@ const style = StyleSheet.create({
         paddingTop: 18,
         fontSize: 32,
         fontWeight: 500,
-        color: '#000',
+        color: '#fff',
         textAlign: 'center'
     }
 })
